@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Halloween Traditions</title>
+<style>
+:root{--sage:#7b3fb5;--sage-d:#4b2a7a;--sage-l:#f1e8fb;--or:#f57c00;--ok:#2e9e4f;--bad:#d64545;--bg:#fff;--txt:#3d2566;--hl:#ffd9a0;--fs:clamp(13.5px,calc(1.11vh + .57vw),24px);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:inherit;cursor:default!important;-webkit-user-select:none;user-select:none}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--txt);font-family:Georgia,'Times New Roman',serif;overflow:hidden;display:flex;flex-direction:column;height:100vh}
+header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;padding:6px 16px;background:linear-gradient(90deg,#4b2a7a,#7b3fb5 55%,#f57c00);color:#fff;font-family:system-ui,sans-serif;font-size:clamp(12px,1.2vw,17px);font-weight:700}
+header .c{font-size:clamp(16px,2vw,28px);text-align:center;letter-spacing:.04em;text-shadow:0 2px 0 rgba(0,0,0,.25)}
+header .r{display:flex;justify-content:flex-end;align-items:center;gap:8px;flex-wrap:wrap}
+.sw{display:flex;align-items:center;gap:6px}.sw b{font-variant-numeric:tabular-nums;min-width:48px}
+button{font:inherit;cursor:pointer;border:2px solid var(--sage);background:#fff;color:var(--sage-d);border-radius:12px;padding:6px 16px;font-family:system-ui,sans-serif;font-weight:700;font-size:clamp(12px,1.1vw,16px);transition:transform .15s}
+button:hover:not(:disabled){background:var(--sage-l);transform:translateY(-2px)}button:disabled{opacity:.4;cursor:default}
+button.pri{background:var(--or);border-color:var(--or);color:#fff}button.pri:hover:not(:disabled){background:#d96a00}
+.pk{width:1.4em;height:1.4em;vertical-align:middle;animation:bob 2.4s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-4px) rotate(6deg)}}
+.bar{height:10px;background:var(--sage-l)}.bar i{display:block;height:100%;background:linear-gradient(90deg,#7b3fb5,#f57c00);transition:width .3s}
+main{flex:1;min-height:0;display:grid;grid-template-columns:3fr 1fr;gap:10px;padding:8px 10px}
+.read,.qa{min-height:0;font-size:var(--fs);line-height:1.35}
+.read{position:relative;padding-left:2.4em;overflow:auto;background:#fff;border:2px solid var(--sage-l);border-radius:16px;padding-top:10px;padding-bottom:10px;padding-right:8px;box-shadow:0 4px 16px rgba(123,63,181,.15)}
+.read p{margin:0 0 .45em;white-space:nowrap}.L{display:block;white-space:nowrap;text-align:left}
+.lm{display:inline-block;width:0;height:1em;vertical-align:middle}
+.ln{position:absolute;left:.3em;width:2.2em;text-align:right;font-size:.75em;font-weight:700;color:var(--or);font-family:system-ui,sans-serif;user-select:none;transform:translateY(-50%)}
+.h{font-weight:700;color:var(--sage);letter-spacing:.06em;font-size:var(--fs);margin:.4em 0 .15em;font-family:system-ui,sans-serif}
+.read .h:first-child{margin-top:0}
+.ev.on{background:var(--hl);border-radius:3px;box-shadow:0 0 0 2px var(--hl)}
+.qa{display:flex;flex-direction:column;gap:8px;background:linear-gradient(#fff,#fbf4ff);border:2px solid var(--sage-l);border-radius:16px;padding:10px;box-shadow:0 4px 16px rgba(245,124,0,.15);overflow-y:auto;overflow-x:hidden}.qa>*{flex-shrink:0}
+.q{font-size:var(--fs);margin:0;font-weight:400}
+.zone{border:2px dashed var(--sage);border-radius:14px;padding:8px 12px;min-height:5.5em;flex:1 0 auto;cursor:pointer;background:#fff}
+.zone.tgt{background:var(--sage-l)}
+.zone .t{font-weight:400;font-size:var(--fs);font-family:system-ui,sans-serif;margin-bottom:4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:var(--fs);padding:4px 12px;border:2px solid var(--sage);border-radius:999px;background:#fff;cursor:pointer;font-family:system-ui,sans-serif;font-weight:400;box-shadow:0 2px 6px rgba(75,42,122,.2);transition:transform .15s}.chip:hover{transform:translateY(-2px)}
+.chip.sel{background:var(--or);border-color:var(--or);color:#fff}
+.chip.ok{border-color:var(--ok);background:#e3f6ea;color:#17692f}
+.chip.bad{border-color:var(--bad);background:#fde6e6;color:#a12626}
+.chip.ans{border:2px dashed var(--ok);background:#f1fbf4;color:#17692f}
+.opt{display:flex;gap:.6em;align-items:center;text-align:left;font-size:var(--fs);padding:.6em .9em;border-radius:14px;flex:1 0 auto;background:#fff;border:2px solid var(--sage);color:var(--txt);font-weight:400;line-height:1.3}
+.opt b{font-weight:400;background:var(--sage-l);border-radius:50%;min-width:1.7em;height:1.7em;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.opt.sel,.opt.sel:hover:not(:disabled){background:var(--or);border-color:var(--or);color:#fff}
+.opt.ok{border-color:var(--ok);background:#e3f6ea;color:#17692f}
+.opt.bad{border-color:var(--bad);background:#fde6e6;color:#a12626}
+.opt.ans{border:2px dashed var(--ok);background:#f1fbf4;color:#17692f}
+.opt.lk{pointer-events:none}
+.cnt{font-size:var(--fs);font-weight:700;font-family:system-ui,sans-serif}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.nav{display:flex;justify-content:space-between;margin-top:auto;gap:8px}
+#end{position:fixed;inset:0;background:radial-gradient(circle at 50% 30%,#f1e8fb,#fff 70%);display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;z-index:5;font-family:system-ui,sans-serif}
+#end h2{font-size:clamp(40px,6vw,72px);margin:0;color:var(--or)}#end p{font-size:clamp(28px,4vw,48px);margin:0}
+@media (max-width:700px){main{grid-template-columns:1fr;grid-template-rows:1fr 1fr;overflow:auto}.read{overflow:auto}header{grid-template-columns:1fr;text-align:center}header .r{justify-content:center}}
+</style></head><body>
+<header><div id="sl">Slide 1 of 1</div><div class="c"><svg width="0" height="0" style="position:absolute"><symbol id="pk" viewBox="0 0 64 64"><ellipse cx="32" cy="38" rx="26" ry="20" fill="#f57c00"/><ellipse cx="18" cy="38" rx="12" ry="19" fill="#ff9a2e"/><ellipse cx="46" cy="38" rx="12" ry="19" fill="#ff9a2e"/><ellipse cx="32" cy="38" rx="9" ry="20" fill="#f57c00"/><path d="M29 20 Q30 8 38 8 L38 12 Q34 12 34 21Z" fill="#4b7a2e"/><path d="M19 33 L27 33 L23 27Z M37 33 L45 33 L41 27Z" fill="#3d2566"/><path d="M20 44 L25 48 L29 44 L32 49 L36 44 L40 48 L44 44 L44 50 Q32 58 20 50Z" fill="#3d2566"/></symbol></svg><svg class="pk"><use href="#pk"/></svg> 🦇 Halloween Traditions 👻 <svg class="pk"><use href="#pk"/></svg></div>
+<div class="r"><div class="sw"><button id="st" class="pri">Start</button><button id="pa">Pause</button><b id="tm">00:00</b></div><div id="sc">Score: 0/1</div></div></header>
+<div class="bar"><i id="pb"></i></div>
+<main>
+<section class="read" id="read">
+<p><span class="L">If you think of Halloween, you probably think of scary carved pumpkins, all kinds of fancy dress and</span><span class="L">children asking for sweets. And if you think of a country that celebrates Halloween, you probably think of</span><span class="L">the United States first. <span class="ev" data-e="adopt origin">Americans and Canadians have adopted Halloween in a big way, but Halloween</span></span><span class="L"><span class="ev" data-e="adopt origin">traditions actually come from 16th-century Ireland, Scotland and England.</span></span></p>
+<p><span class="L"><span class="ev" data-e="sam">The tradition of Halloween on 31 October comes from the ancient Celtic festival of Samhain. Samhain was</span></span><span class="L"><span class="ev" data-e="sam">the Celtic New Year and they celebrated it on 1 November because that was the end of summer and harvest</span></span><span class="L"><span class="ev" data-e="sam">time (life) and the beginning of winter (death).</span> <span class="ev" data-e="ghost">It was also the time for ghosts to return to earth for a</span></span><span class="L"><span class="ev" data-e="ghost">day.</span> People lit a big fire, wore special clothes made of animal skin and hoped to be safe from the ghosts</span><span class="L">and the winter. <span class="ev" data-e="church">In AD 609, the Catholic Church put the Christian celebration of All Saints Day on 1</span></span><span class="L"><span class="ev" data-e="church">November.</span> In AD 1000, the church added All Souls Day on 2 November, and All Hallows Eve – or Halloween –</span><span class="L">moved to the night of the 31st.</span></p>
+<p><span class="L">The Celts carved faces into vegetables like turnips <span class="ev" data-e="k0">to scare the ghosts and other spirits and make them go</span></span><span class="L"><span class="ev" data-e="k0">away.</span> It was sometimes called a jack-o’-lantern because of an Irish story about a man, Jack. <span class="ev" data-e="pun">He played a</span></span><span class="L"><span class="ev" data-e="pun">trick on the devil and then had to walk the earth for all time as a punishment.</span> <span class="ev" data-e="k5 carve">Irish people who came to</span></span><span class="L"><span class="ev" data-e="k5 carve">live in the United States in the 1800s found pumpkins much easier to carve, and the tradition became the</span></span><span class="L"><span class="ev" data-e="k5 carve">one we see today.</span></span></p>
+<p><span class="L">The Celts were afraid of the ghosts that came on Samhain. <span class="ev" data-e="k1 mask">If they went outside after dark, they covered</span></span><span class="L"><span class="ev" data-e="k1 mask">their faces with masks.</span> <span class="ev" data-e="mask">They hoped any ghosts they met would think they were ghosts too and would leave</span></span><span class="L"><span class="ev" data-e="mask">them alone.</span> In early America, the Native Americans and the first Europeans celebrated the end of the</span><span class="L">harvest, but not Halloween. When Irish people arrived, the harvest festival started to look more like</span><span class="L">Halloween and it became popular across the country. <span class="ev" data-e="k3">In the late 19th century, people tried to make</span></span><span class="L"><span class="ev" data-e="k3">Halloween less about ghosts and religion and more about celebrating the season with a party for neighbours</span></span><span class="L"><span class="ev" data-e="k3">and family.</span> That’s why <span class="ev" data-e="k1">Americans today wear all kinds of Halloween costumes</span> and not just scary things like</span><span class="L">witches and ghosts like in other countries.</span></p>
+<p><span class="L">This is another tradition that began in Europe, this time in England. When the church introduced All Souls</span><span class="L">Day, rich people gave poor people ‘soul cakes’, a small cake made with spices and raisins. <span class="ev" data-e="it">It replaced the</span></span><span class="L"><span class="ev" data-e="it">Celtic tradition of leaving food outside houses for the ghosts.</span> <span class="ev" data-e="k2">‘Going a-souling’ was popular in England</span></span><span class="L"><span class="ev" data-e="k2">for hundreds of years until about the 1930s.</span> <span class="ev" data-e="k4">The Americans kept the tradition, but today children knock on</span></span><span class="L"><span class="ev" data-e="k4">people’s doors and ask for sweets.</span> <span class="ev" data-e="qty">Going trick or treating is so popular that a quarter of the sweets for</span></span><span class="L"><span class="ev" data-e="qty">the year in the United States are sold for this one day.</span></span></p>
+<p><span class="L">Halloween has become the United States’ second-biggest commercial festival after Christmas. Halloween is</span><span class="L">also celebrated in other countries, but it’s not as big as in the United States, even in the countries</span><span class="L">where the traditions began. <span class="ev" data-e="mex">Mexico celebrates the Day of the Dead from 31 October to 2 November and some</span></span><span class="L"><span class="ev" data-e="mex">of its traditions, like giving gifts of sugar skulls, are starting to mix with Halloween.</span> <span class="ev" data-e="change">In this way, the</span></span><span class="L"><span class="ev" data-e="change">celebration of Halloween continues to change as new traditions join the oldest of the Celtic ones.</span></span></p>
+</section>
+<section class="qa" id="qa"></section>
+</main>
+<div id="end"><svg class="pk" style="width:120px;height:120px"><use href="#pk"/></svg><h2>Well done!</h2><p id="es"></p><p id="et"></p><button class="pri" id="pl">Play Again</button></div>
+<script>
+const S=[
+{t:'sort',instr:'Put the traditions in the correct group.',
+ items:['scaring ghosts and spirits away','wearing fancy dress','going a-souling','celebrating with friends and family','going trick or treating','carving pumpkins'],
+ groups:['Modern traditions','Past traditions','Traditions that are both past and modern'],ans:[1,2,1,0,0,2],ev:['k0','k1','k2','k3','k4','k5']},
+{t:'mc',n:1,q:'What is the main topic of the passage?',o:['The religious beliefs of ancient European people','The origins and development of Halloween traditions','The differences between American and European festivals','The commercial importance of Christmas and Halloween'],a:1,ev:['origin'],inf:1},
+{t:'mc',n:2,q:'The word “adopted” in line 3 is closest in meaning to',o:['rejected','accepted','explained','discovered'],a:1,ev:['adopt'],inf:1},
+{t:'mc',n:3,q:'According to the passage, why did the Celts celebrate Samhain?',o:['To celebrate the arrival of the Catholic Church','To mark the end of winter and the beginning of spring','To mark the end of summer and the beginning of winter','To welcome visitors from other European countries'],a:2,ev:['sam']},
+{t:'mc',n:4,q:'Which of the following is NOT mentioned as a reason for the development of Halloween traditions?',o:['The Celtic belief that ghosts returned to earth','The introduction of Christian celebrations','The use of masks to avoid being recognized by ghosts','The desire to celebrate the beginning of the school year'],a:3,ev:['ghost','church','mask'],inf:1},
+{t:'mc',n:5,q:'The word “punishment” in line 14 is closest in meaning to',o:['reward','penalty','celebration','opportunity'],a:1,ev:['pun'],inf:1},
+{t:'mc',n:6,q:'According to the passage, why did Irish immigrants in the United States begin using pumpkins instead of turnips?',o:['Pumpkins were easier to carve.','Pumpkins were more frightening to ghosts.','Turnips were considered unlucky.','Turnips were used only for religious celebrations.'],a:0,ev:['carve']},
+{t:'mc',n:7,q:'Why does the author mention masks in line 18?',o:['To explain how the Celts attempted to protect themselves from ghosts','To show that the Celts preferred wearing fashionable clothes','To explain why Halloween costumes became expensive','To describe a tradition introduced by the Catholic Church'],a:0,ev:['mask'],inf:1},
+{t:'mc',n:8,q:'The word “It” in line 26 refers to',o:['All Souls Day','the tradition of giving soul cakes','the tradition of leaving food outside houses for ghosts','the celebration of Halloween in America'],a:2,ev:['it']},
+{t:'mc',n:9,q:'Why does the author mention that a quarter of the sweets sold annually in the United States are sold for Halloween?',o:['To show that Halloween has become a major commercial event','To explain why soul cakes are no longer popular in England','To compare the prices of sweets in different countries','To show that children prefer American traditions to European ones'],a:0,ev:['qty'],inf:1},
+{t:'mc',n:10,q:'Where in the passage does the author explain that Halloween traditions are influenced by different cultures?',o:['Lines 5–11','Lines 12–16','Lines 17–24','Lines 31–35'],a:3,ev:['mex'],inf:1}
+];
+let L={};const fx=t=>t.replace(/\{(\w+)\}/g,(m,k)=>L[k]??"…");const N=S.length;let cur=0,st,score,secs=0,iv=null;
+const $=id=>document.getElementById(id);
+function init(){st=S.map(q=>({pl:q.t==='sort'?q.items.map(()=>null):null,pick:null,sel:null,checked:false,shown:false,ok:false}));cur=0;score=0;secs=0;stop();$('end').style.display='none';render();tick()}
+const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+function tick(){$('tm').textContent=fmt(secs)}
+function start(){if(!iv)iv=setInterval(()=>{secs++;tick()},1000)}
+function stop(){clearInterval(iv);iv=null}
+function render(){
+const q=S[cur],s=st[cur],lock=s.checked||s.shown,sort=q.t==='sort';
+$('sl').textContent=`Slide ${cur+1} of ${N}`;$('sc').textContent=`Score: ${score}/${N}`;$('pb').style.width=((cur+1)/N*100)+'%';
+document.querySelectorAll('.ev').forEach(e=>e.classList.toggle('on',s.shown&&e.dataset.e.split(' ').some(t=>q.ev.includes(t))));
+let h='',canCheck;
+if(sort){
+ const pl=s.shown?q.ans:s.pl;
+ const chip=i=>{let c='chip';if(s.shown)c+=' ans';else if(s.checked)c+=pl[i]===q.ans[i]?' ok':' bad';else if(s.sel===i)c+=' sel';return `<span class="${c}" data-i="${i}">${q.items[i]}</span>`};
+ const bank=q.items.map((_,i)=>i).filter(i=>pl[i]===null);
+ canCheck=bank.length==0;
+ h+=`<div class="h">${q.instr}</div><div class="cnt">${bank.length} item${bank.length==1?'':'s'} remaining</div><div class="zone bank" data-g="-1"><div class="chips">${bank.map(chip).join('')}</div></div>`;
+ q.groups.forEach((g,gi)=>{h+=`<div class="zone" data-g="${gi}"><div class="t">${g}</div><div class="chips">${q.items.map((_,i)=>pl[i]===gi?chip(i):'').join('')}</div></div>`});
+}else{
+ canCheck=s.pick!==null;
+ h+=`<div class="h">Read the text again. Choose the correct answer.</div><p class="q">${q.n}. ${fx(q.q)}</p>`;
+ q.o.forEach((o,i)=>{let c='opt'+(lock?' lk':'');if(s.checked){if(i===q.a)c+=' ok';else if(i===s.pick)c+=' bad'}else if(s.pick===i)c+=' sel';h+=`<button class="${c}" data-i="${i}"><b>${'ABCD'[i]}</b><span>${fx(o)}</span></button>`});
+ if(s.shown&&q.inf)h+=`<div class="h">Inferred answer (evaluation/inference)</div>`;
+}
+h+=`<div class="acts"><button class="pri" id="ck" ${(!lock&&canCheck)?'':'disabled'}>Check Answers</button>${sort?`<button id="tr" ${lock?'disabled':''}>Try again</button>`:''}<button id="sa" ${(s.checked&&!s.shown)?'':'disabled'}>Show Answer</button></div>`;
+h+=`<div class="nav"><button id="pv" ${cur==0?'disabled':''}>← Previous</button><button class="pri" id="nx">${cur==N-1?'Finish':'Next →'}</button></div>`;
+$('qa').innerHTML=h;
+document.querySelectorAll('.chip').forEach(c=>c.onclick=e=>{e.stopPropagation();if(lock)return;const i=+c.dataset.i;s.sel=s.sel===i?null:i;render()});
+document.querySelectorAll('.zone').forEach(z=>{if(!lock&&s.sel!==null)z.classList.add('tgt');z.onclick=()=>{if(lock||s.sel===null)return;s.pl[s.sel]=+z.dataset.g<0?null:+z.dataset.g;s.sel=null;render()}});
+document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(lock)return;s.pick=+b.dataset.i;render()});
+$('ck').onclick=()=>{s.checked=true;s.sel=null;s.ok=sort?s.pl.every((v,i)=>v===q.ans[i]):s.pick===q.a;if(s.ok)score++;render()};
+if($('tr'))$('tr').onclick=()=>{s.pl=q.items.map(()=>null);s.sel=null;render()};
+$('sa').onclick=()=>{s.shown=true;s.sel=null;render()};
+$('pv').onclick=()=>{cur--;render()};
+$('nx').onclick=()=>{if(cur<N-1){cur++;render()}else finish()};
+}
+function finish(){stop();$('es').textContent=`Score: ${score}/${N}`;$('et').textContent=`Total time: ${fmt(secs)}`;$('end').style.display='flex'}
+$('st').onclick=start;$('pa').onclick=stop;$('pl').onclick=init;
+function numLines(){const r=$('read');r.querySelectorAll('.ln').forEach(e=>e.remove());const rb=r.getBoundingClientRect();let n=0;
+r.querySelectorAll(':scope>p').forEach(p=>{const pb=p.getBoundingClientRect(),lh=parseFloat(getComputedStyle(p).lineHeight),c=p.querySelectorAll('.L').length;
+for(let k=0;k<c;k++){if((n+k+1)%5==0){const d=document.createElement('div');d.className='ln';d.style.top=(pb.top-rb.top-r.clientTop+r.scrollTop+k*lh+lh/2)+'px';d.textContent=n+k+1;r.appendChild(d)}}
+n+=c})}
+function fit(){const r=$('read'),root=document.documentElement;root.style.setProperty('--fs','100px');let w=0;r.querySelectorAll(':scope>p').forEach(p=>{w=Math.max(w,p.scrollWidth)});
+const fs=Math.max(9,Math.min(28,(r.clientWidth-18)/(w/100+2.4)));root.style.setProperty('--fs',fs+'px');const nl=r.querySelectorAll('.L').length,cs=getComputedStyle(r),av=r.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);r.style.lineHeight=Math.max(1.3,Math.min(1.7,(av/fs-.45*r.querySelectorAll(':scope>p').length-.1)/nl));numLines()}
+addEventListener('resize',fit);addEventListener('load',fit);
+init();fit();
+</script></body></html>
